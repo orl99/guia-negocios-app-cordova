@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-toolbar class="hc-toolbar-bg-color">
+        <ion-buttons slot="start">
+            <ng-container *ngIf="toolTipType === 'main'">
+                <ion-menu-button class="ion-back-btn"></ion-menu-button>
+            </ng-container>
+            <ng-container *ngIf="toolTipType === 'page'">
+                <ion-back-button class="ion-back-btn" defaultHref="categories"></ion-back-button>
+            </ng-container>
+        </ion-buttons>
+        <div class="hc-slot-center">
+            <ion-img src="assets/img/Logo-GPN-Blanco.png"></ion-img>
+        </div>
+        <div slot="end" style="width: 48px; height: 48px;">
+        </div>
+    </ion-toolbar>
+</ion-header>
