@@ -6,13 +6,6 @@ import { Post } from 'src/app/models/post.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Tag, LiteTag } from 'src/app/models/tags.interface';
 
-// AdMob ionic plugs
-import { Plugins } from '@capacitor/core';
-
-const { AdMob } = Plugins;
-// Ionic
-import { ToastController } from '@ionic/angular';
-
 
 @Component({
   selector: 'app-post',

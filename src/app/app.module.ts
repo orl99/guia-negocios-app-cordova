@@ -21,6 +21,11 @@ import { HTTP } from '@ionic-native/http/ngx';
 
 import { Facebook } from '@ionic-native/facebook/ngx';
 
+import { AdMobFree } from '@ionic-native/admob-free/ngx';
+
+
+// AdMob Service
+import { AdmobService } from './services/admob.service';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -42,7 +47,8 @@ import { Facebook } from '@ionic-native/facebook/ngx';
     },
     HTTP,
     AppVersion,
-    Facebook
+    Facebook,
+    AdMobFree,
   ],
   bootstrap: [AppComponent]
 })

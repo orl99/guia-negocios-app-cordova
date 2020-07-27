@@ -2,11 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { WordpressApiService } from 'src/app/services/wordpress-api.service';
 
-// AdMob ionic plugs
-import { Plugins } from '@capacitor/core';
-
-const { AdMob } = Plugins;
-
 @Component({
   selector: 'app-post',
   templateUrl: './post.page.html',

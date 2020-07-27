@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.guiaparanegocios.app" version="1.7.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>MyApp</name>
+    <name>Guia para negocios</name>
     <description>Guia para negocios App</description>
     <author email="info@miopr.com" href="https://mioagency.com/">Orlando Garcia - Mio Agency</author>
     <content src="index.html" />

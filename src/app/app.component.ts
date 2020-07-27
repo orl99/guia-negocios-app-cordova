@@ -4,9 +4,6 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-import { Plugins } from '@capacitor/core';
-const { AdMob } = Plugins;
-
 import { AppVersion } from '@ionic-native/app-version/ngx';
 import { Facebook } from '@ionic-native/facebook/ngx';
 
@@ -16,6 +13,7 @@ import { Facebook } from '@ionic-native/facebook/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
+
   public selectedIndex = 0;
   public versionName: string;
   public appPages = [
@@ -44,7 +42,7 @@ export class AppComponent implements OnInit {
     private FB: Facebook,
   ) {
     this.initializeApp();
-    AdMob.initialize('ca-app-pub-8693507653531046~7933897666');
+    // AdMob.initialize('ca-app-pub-8693507653531046~7933897666');
     if (isDevMode()) {
       console.log('Welcome Developer, Dev Mode is On :D');
     } else {
@@ -53,14 +51,7 @@ export class AppComponent implements OnInit {
   }
 
   initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-      if (this.platform.is('hybrid')) {
-        this.getAppVersion();
-      }
-      this.FB.activateApp();
-    });
+    this.platform.ready().then(() => this.statusBar.styleDefault());
   }
 
   ngOnInit() {}
