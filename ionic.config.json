@@ -1,5 +1,7 @@
 {
   "name": "guia-negocios-app-cordova",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
