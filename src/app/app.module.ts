@@ -7,9 +7,11 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppVersion } from '@ionic-native/app-version/ngx';
 
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+
+// Storage
+import { IonicStorageModule } from '@ionic/storage';
 
 // Interceptor
 import { HttpLoaderInterceptor } from 'src/app/services/interceptors/httpLoaderInterceptor.interceptor';
@@ -23,9 +25,9 @@ import { Facebook } from '@ionic-native/facebook/ngx';
 
 import { AdMobFree } from '@ionic-native/admob-free/ngx';
 
-
 // AdMob Service
 import { AdmobService } from './services/admob.service';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -34,6 +36,7 @@ import { AdmobService } from './services/admob.service';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
+    IonicStorageModule.forRoot()
 
   ],
   providers: [

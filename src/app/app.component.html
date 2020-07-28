@@ -14,6 +14,14 @@
                             <ion-label>{{ p.title }}</ion-label>
                         </ion-item>
                     </ion-menu-toggle>
+
+                    <ion-item lines="none">
+                        <ion-icon slot="start" name="moon"></ion-icon>
+                        <ion-label>Dark Mode</ion-label>
+                        <ion-toggle slot="end"
+                                    [checked]="darkMode"
+                                    (ionChange)="cambioTheme()"></ion-toggle>
+                    </ion-item>
                 </ion-list>
                 <div class="app-menu-copyright">
                     <p>
