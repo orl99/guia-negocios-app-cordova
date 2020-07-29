@@ -80,7 +80,7 @@ export class AppComponent implements OnInit {
 
   cambioTheme() {
     this.darkMode = !this.darkMode;
-    document.body.classList.toggle( 'dark');
+    document.body.classList.toggle('dark');
     this.dataLocalService.guardarStorage( this.darkMode );
   }
 
