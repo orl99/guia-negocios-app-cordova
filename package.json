@@ -29,7 +29,6 @@
     "@ionic/angular": "^5.0.0",
     "@ionic/storage": "^2.3.0",
     "cordova-admob-sdk": "0.24.1",
-    "cordova-android": "^8.1.0",
     "cordova-ios": "^5.1.1",
     "cordova-plugin-add-swift-support": "^2.0.2",
     "cordova-plugin-admob-free": "0.27.0",
@@ -77,13 +76,16 @@
       "cordova-plugin-facebook4": {
         "APP_ID": "283881516139140",
         "APP_NAME": "Guia Para Negocios",
-        "FACEBOOK_HYBRID_APP_EVENTS": "true"
+        "FACEBOOK_HYBRID_APP_EVENTS": "true",
+        "FACEBOOK_ANDROID_SDK_VERSION": "5.13.0"
       },
       "cordova-plugin-whitelist": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
-      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-ionic-webview": {
+        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
+      },
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-admob-free": {
         "ADMOB_APP_ID": "ca-app-pub-8693507653531046~7933897666"
@@ -92,7 +94,6 @@
       "cordova-plugin-app-version": {}
     },
     "platforms": [
-      "android",
       "ios"
     ]
   }
