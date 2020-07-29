@@ -39,13 +39,15 @@ export class AdmobService {
 
 
   private setBannerConfig() {
-
+    console.log('GPN-LOG: banners PLATFOM CONFIG');
     // If Android
     if (this.platform.is('hybrid') && this.platform.is('android')) {
+        console.log('GPN-LOG: ANDROID banners');
         this.admobFree.banner.config(this.androidBannerConfig);
     }
     // if ios
     if (this.platform.is('hybrid') && this.platform.is('ios')) {
+        console.log('GPN-LOG: IOS banners');
         this.admobFree.banner.config(this.iosdBannerConfig);
     }
   }
@@ -53,9 +55,9 @@ export class AdmobService {
   public showBanner() {
     // COMPROBAR Y MOSTRAR EL BANNER
     this.admobFree.banner.prepare().then(() => {
-      console.log('BANNER CARGADO CORRECTAMENTE');
+      console.log('GPN-LOG: BANNER CARGADO CORRECTAMENTE');
     }).catch(e =>
-      console.log('PROBLEMA CARGANDO BANNER: ', e)
+      console.log('GPN-LOG: PROBLEMA CARGANDO BANNER: ', e)
     );
   }
 }

@@ -26,10 +26,11 @@ export class CategoriesPage implements OnInit {
 
   async ngOnInit() {
     // Show adds
-    this.adModService.showBanner();
     const res = await this.wpService.getCategories();
     console.log('res', res);
     this.categories = res;
+    console.log('GPN-LOG: showbanner()');
+    this.adModService.showBanner();
   }
 
   public goPostsByCat(catId: number) {
