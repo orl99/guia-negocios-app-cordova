@@ -14,6 +14,15 @@
                             <ion-label>{{ p.title }}</ion-label>
                         </ion-item>
                     </ion-menu-toggle>
+
+                    <ion-item lines="none" (click)="cambioTheme()">
+                        <ion-icon *ngIf="!darkMode" slot="start" name="moon"></ion-icon>
+                        <ion-label *ngIf="!darkMode">Act. Dark Mode</ion-label>
+
+                        <ion-icon  *ngIf="darkMode" slot="start" name="sunny"></ion-icon>
+                        <ion-label *ngIf="darkMode">Act. light Mode</ion-label>
+
+                    </ion-item>
                 </ion-list>
                 <div class="app-menu-copyright">
                     <p>

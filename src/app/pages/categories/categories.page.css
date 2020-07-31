@@ -12,6 +12,7 @@
 .cat-card {
   border: 8px solid white;
   border-radius: 0;
+  border: 0px solid;
 }
 
 .car-title-container {

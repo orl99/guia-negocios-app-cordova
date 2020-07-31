@@ -2,20 +2,16 @@
 
 .cat-card-container {
     background-size: cover;
-    height: 150px;
+    background-repeat: no-repeat∫;
     display: flex;
     align-items: flex-end;
+    height: 148px;
     @include md {
         height: 200px;
     }
     @include xl {
         height: 250px;
     }
-}
-
-.cat-card {
-    border: 8px solid white;
-    border-radius: 0;
 }
 
 .car-title-container {

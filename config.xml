@@ -31,27 +31,24 @@
         <icon density="xhdpi" src="resources/android/icon/drawable-xhdpi-icon.png" />
         <icon density="xxhdpi" src="resources/android/icon/drawable-xxhdpi-icon.png" />
         <icon density="xxxhdpi" src="resources/android/icon/drawable-xxxhdpi-icon.png" />
-        <splash density="land-ldpi" src="resources/android/splash/drawable-land-ldpi-screen.png" />
-        <splash density="land-mdpi" src="resources/android/splash/drawable-land-mdpi-screen.png" />
-        <splash density="land-hdpi" src="resources/android/splash/drawable-land-hdpi-screen.png" />
-        <splash density="land-xhdpi" src="resources/android/splash/drawable-land-xhdpi-screen.png" />
-        <splash density="land-xxhdpi" src="resources/android/splash/drawable-land-xxhdpi-screen.png" />
-        <splash density="land-xxxhdpi" src="resources/android/splash/drawable-land-xxxhdpi-screen.png" />
-        <splash density="port-ldpi" src="resources/android/splash/drawable-port-ldpi-screen.png" />
-        <splash density="port-mdpi" src="resources/android/splash/drawable-port-mdpi-screen.png" />
-        <splash density="port-hdpi" src="resources/android/splash/drawable-port-hdpi-screen.png" />
-        <splash density="port-xhdpi" src="resources/android/splash/drawable-port-xhdpi-screen.png" />
-        <splash density="port-xxhdpi" src="resources/android/splash/drawable-port-xxhdpi-screen.png" />
-        <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
+        <splash density="land-ldpi" src="resources/android/splash/drawable/splash.png" />
+        <splash density="land-mdpi" src="resources/android/splash/drawable-land-mdpi/splash.png" />
+        <splash density="land-hdpi" src="resources/android/splash/drawable-land-hdpi/splash.png" />
+        <splash density="land-xhdpi" src="resources/android/splash/drawable-land-xhdpi/splash.png" />
+        <splash density="land-xxhdpi" src="resources/android/splash/drawable-land-xxhdpi/splash.png" />
+        <splash density="land-xxxhdpi" src="resources/android/splash/drawable-land-xxxhdpi/splash.png" />
+        <splash density="port-ldpi" src="resources/android/splash/drawable-port-mdpi/splash.png" />
+        <splash density="port-mdpi" src="resources/android/splash/drawable-port-mdpi/splash.png" />
+        <splash density="port-hdpi" src="resources/android/splash/drawable-port-hdpi/splash.png" />
+        <splash density="port-xhdpi" src="resources/android/splash/drawable-port-xhdpi/splash.png" />
+        <splash density="port-xxhdpi" src="resources/android/splash/drawable-port-xxhdpi/splash.png" />
+        <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi/splash.png" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
         <icon height="57" src="resources/ios/icon/icon.png" width="57" />
         <icon height="114" src="resources/ios/icon/icon@2x.png" width="114" />
-        <icon height="29" src="resources/ios/icon/icon-small.png" width="29" />
-        <icon height="58" src="resources/ios/icon/icon-small@2x.png" width="58" />
-        <icon height="87" src="resources/ios/icon/icon-small@3x.png" width="87" />
         <icon height="20" src="resources/ios/icon/icon-20.png" width="20" />
         <icon height="40" src="resources/ios/icon/icon-20@2x.png" width="40" />
         <icon height="60" src="resources/ios/icon/icon-20@3x.png" width="60" />
@@ -92,6 +89,17 @@
         <splash height="2208" src="resources/ios/splash/Default-736h.png" width="1242" />
         <splash height="2436" src="resources/ios/splash/Default-2436h.png" width="1125" />
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
+        <config-file parent="GADApplicationIdentifier" target="*-Info.plist">
+            <string>ca-app-pub-8693507653531046~6850451094</string>
+        </config-file>
+        <config-file parent="GADIsAdManagerApp" target="*-Info.plist">
+            <true />
+        </config-file>
+        <icon height="216" src="resources/ios/icon/icon-108@2x.png" width="216" />
+        <splash height="2688" src="resources/ios/splash/Default-2688h~iphone.png" width="1242" />
+        <splash height="1242" src="resources/ios/splash/Default-Landscape-2688h~iphone.png" width="2688" />
+        <splash height="1792" src="resources/ios/splash/Default-1792h~iphone.png" width="828" />
+        <splash height="828" src="resources/ios/splash/Default-Landscape-1792h~iphone.png" width="1792" />
     </platform>
     <plugin name="cordova-plugin-whitelist" spec="1.3.3" />
     <plugin name="cordova-plugin-statusbar" spec="2.4.2" />
@@ -99,7 +107,4 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^4.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
-    <config-file parent="GADApplicationIdentifier" target="*-Info.plist">
-        <string>ca-app-pub-8693507653531046~6850451094</string>
-    </config-file>
 </widget>

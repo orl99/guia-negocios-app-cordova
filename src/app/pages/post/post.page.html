@@ -1,6 +1,7 @@
 <app-header headerType="page"></app-header>
 
 <ion-content>
+
     <div class="post-main-container">
         <div *ngIf="!!mainImage">
             <ion-img style="padding: 2px;" [src]="mainImage"></ion-img>
@@ -11,5 +12,6 @@
             </div>
             <div [innerHTML]="postHTML"></div>
         </div>
-    </div>
+    </div> 
+
 </ion-content>

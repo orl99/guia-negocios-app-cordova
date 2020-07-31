@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppVersion } from '@ionic-native/app-version/ngx';
 import { Facebook } from '@ionic-native/facebook/ngx';
+import { DataLocalService } from './services/data-local.service';
 
 @Component({
   selector: 'app-root',
@@ -34,12 +35,17 @@ export class AppComponent implements OnInit {
     },
   ];
 
+
+  // tslint:disable-next-line: no-inferrable-types
+  darkMode: boolean = false;
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private appVersion: AppVersion,
     private FB: Facebook,
+    private dataLocalService: DataLocalService,
   ) {
     this.initializeApp();
     // AdMob.initialize('ca-app-pub-8693507653531046~7933897666');
@@ -54,7 +60,12 @@ export class AppComponent implements OnInit {
     this.platform.ready().then(() => this.statusBar.styleDefault());
   }
 
-  ngOnInit() {}
+  async ngOnInit() {
+    this.darkMode = await this.dataLocalService.cargarStorage();
+    if ( this.darkMode ) {
+      document.body.classList.add('dark');
+    }
+  }
 
   async getAppVersion() {
     const versionNumber =  await this.appVersion.getVersionNumber();
@@ -66,4 +77,11 @@ export class AppComponent implements OnInit {
     }
     console.log('app version:', this.versionName);
   }
+
+  cambioTheme() {
+    this.darkMode = !this.darkMode;
+    document.body.classList.toggle('dark');
+    this.dataLocalService.guardarStorage( this.darkMode );
+  }
+
 }
