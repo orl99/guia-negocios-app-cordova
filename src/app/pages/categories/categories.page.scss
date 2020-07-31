@@ -2,9 +2,11 @@
 
 .cat-card-container {
     background-size: cover;
-    height: 150px;
+    background-repeat: no-repeat;
+    height: 148px;
     display: flex;
     align-items: flex-end;
+    box-shadow: none !important;
     @include md {
         height: 200px;
     }
