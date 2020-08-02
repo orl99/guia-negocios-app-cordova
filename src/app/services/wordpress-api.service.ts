@@ -8,10 +8,11 @@ import { HttpClient } from '@angular/common/http';
 
 // Models
 import { Categories } from 'src/app/models/categories.interface';
-import { Post, OldPost } from '../models/post.interface';
+import { Post, OldPost, BasePostEmbeb } from '../models/post.interface';
 import { Tag, LiteTag } from '../models/tags.interface';
 import { LoadingController, Platform } from '@ionic/angular';
 import { HTTP } from '@ionic-native/http/ngx';
+import { Media } from '../models/media.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -137,11 +138,11 @@ export class WordpressApiService {
    * @param pageNum @number (page number)
    * @returns Promise<OldPost[]>
    */
-  public async getCustomPostType(customPostType: string, pageNum: number): Promise<OldPost[]> {
-    // const posts&cat=16&tag=3&pag=1
+  public async getCustomPostType(customPostType: string, pageNum: number): Promise<BasePostEmbeb[]> {
+
     const loader = await this.loadingController.create({ message: 'loading...' });
     await loader.present() ;
-    const apiUrl = `${this.baseApiEndpoint}${customPostType}?${pageNum}`;
+    const apiUrl = `${this.baseApiEndpoint}${customPostType}?per_page=10&page=${pageNum}&_embed`;
     if (this.plt.is('ios') && this.plt.is('hybrid')) {
       const res = await this.nativeHttp.get(apiUrl, {}, {});
       const jsonRes = JSON.parse(res.data);
@@ -149,8 +150,31 @@ export class WordpressApiService {
       console.log('json', jsonRes);
       return jsonRes;
     }
-    const res = await this.http$.get<OldPost[]>(apiUrl).toPromise();
+    const res = await this.http$.get<BasePostEmbeb[]>(apiUrl).toPromise();
+    res.forEach(async (post) => {
+      const imge = await (await this.getMediaByFMId(res[0].featured_media)).media_details.sizes.medium.source_url;
+      post['post_image'] = imge;
+    });
+    console.log('res', res);
     await loader.dismiss();
+    return res;
+  }
+
+  /**
+   * getMediaByCatId
+   * @param featured_media_id : number
+   * @return Media
+   */
+  public async getMediaByFMId(featuredMediaId: number): Promise<Media> {
+    const apiUrl = `${this.baseApiEndpoint}media/${featuredMediaId}`;
+    if (this.plt.is('ios') && this.plt.is('hybrid')) {
+      const res = await this.nativeHttp.get(apiUrl, {}, {});
+      const jsonRes = JSON.parse(res.data);
+      console.log('json', jsonRes);
+      return jsonRes;
+    }
+    const res = await this.http$.get<Media>(apiUrl).toPromise();
+    console.log('getMediaByFMId', res);
     return res;
   }
 }

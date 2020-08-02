@@ -23,11 +23,11 @@ export class AppComponent implements OnInit {
       url: 'categories',
       icon: 'book'
     },
-    // {
-    //   title: 'Recursos',
-    //   url: 'recursos',
-    //   icon: 'file-tray-stacked'
-    // },
+    {
+      title: 'Recursos',
+      url: 'recursos',
+      icon: 'file-tray-stacked'
+    },
     {
       title: 'Sobre la app',
       url: 'about-app',
