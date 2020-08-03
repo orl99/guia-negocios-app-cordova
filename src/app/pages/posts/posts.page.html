@@ -24,7 +24,6 @@
             </ion-card>
         </div>
         <ng-container *ngIf="pageFilterModeFlag; else elseTemplate">
-            <!-- <h1>Tag Loading</h1> -->
             <ion-infinite-scroll #infiLoadingEl [disabled]="!infinityLoadingFlag" threshold="5%" position="bottom" (ionInfinite)="loadMorePostByTag($event)">
                 <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
                 </ion-infinite-scroll-content>

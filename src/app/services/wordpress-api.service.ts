@@ -142,17 +142,24 @@ export class WordpressApiService {
 
     const loader = await this.loadingController.create({ message: 'loading...' });
     await loader.present() ;
-    const apiUrl = `${this.baseApiEndpoint}${customPostType}?per_page=10&page=${pageNum}&_embed`;
+    const apiUrl = `https://guiaparanegocios.net/wp-json/wp/v2/recursos?_embed&page=${pageNum}`;
+    // const apiUrl = `${this.baseApiEndpoint}${customPostType}?per_page=10&page=${pageNum}&_embed`;
     if (this.plt.is('ios') && this.plt.is('hybrid')) {
       const res = await this.nativeHttp.get(apiUrl, {}, {});
-      const jsonRes = JSON.parse(res.data);
+      const jsonRes: BasePostEmbeb[] = JSON.parse(res.data);
+      console.log('ios get post')
+      jsonRes.forEach(async (post) => {
+        console.log('POST IOS IMAGES');
+        const imge = post._embedded["wp:featuredmedia"][0].media_details.sizes.medium_large.source_url;
+        post['post_image'] = imge;
+      });
       await loader.dismiss();
       console.log('json', jsonRes);
       return jsonRes;
     }
     const res = await this.http$.get<BasePostEmbeb[]>(apiUrl).toPromise();
     res.forEach(async (post) => {
-      const imge = await (await this.getMediaByFMId(res[0].featured_media)).media_details.sizes.medium.source_url;
+      const imge = post._embedded["wp:featuredmedia"][0].media_details.sizes.medium_large.source_url;
       post['post_image'] = imge;
     });
     console.log('res', res);
@@ -160,21 +167,4 @@ export class WordpressApiService {
     return res;
   }
 
-  /**
-   * getMediaByCatId
-   * @param featured_media_id : number
-   * @return Media
-   */
-  public async getMediaByFMId(featuredMediaId: number): Promise<Media> {
-    const apiUrl = `${this.baseApiEndpoint}media/${featuredMediaId}`;
-    if (this.plt.is('ios') && this.plt.is('hybrid')) {
-      const res = await this.nativeHttp.get(apiUrl, {}, {});
-      const jsonRes = JSON.parse(res.data);
-      console.log('json', jsonRes);
-      return jsonRes;
-    }
-    const res = await this.http$.get<Media>(apiUrl).toPromise();
-    console.log('getMediaByFMId', res);
-    return res;
-  }
 }

@@ -78,7 +78,7 @@ export interface BasePostEmbeb {
             alt_text: string;
             source_url: string;
             media_details: {
-                size: {
+                sizes: {
                     medium: ImageBaseI;
                     thumbnail: ImageBaseI;
                     medium_large: ImageBaseI;
