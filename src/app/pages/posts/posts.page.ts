@@ -28,7 +28,7 @@ export class PostPage implements OnInit, AfterViewInit {
   @ViewChild('infiLoadingEl', { static: false }) infiLoadingEl: ElementRef;
   constructor(private wpService: WordpressApiService,
               private route: ActivatedRoute,
-              private router: Router,) {
+              private router: Router) {
     route.params.subscribe((params) => {
       this.category = params['catId'];
     });
@@ -43,7 +43,7 @@ export class PostPage implements OnInit, AfterViewInit {
 
   // TODO: TEST PERFORMANCE
   async ngAfterViewInit() {
-    // Load All Posts by 5 to 5
+    // Load All Posts by 10 to 10
     this.loadPosts();
   }
 
@@ -57,7 +57,6 @@ export class PostPage implements OnInit, AfterViewInit {
     this.inmutePosts = [...response];
     this.allPosts = [...response];
     console.log(this.initialPostsLenght);
-    // TODO: TEST funct
     if (this.initialPostsLenght < 10) {
       console.log('Infinity scroll disabled');
       this.infinityLoadingSwitch(false);
@@ -74,9 +73,6 @@ export class PostPage implements OnInit, AfterViewInit {
       this.allPosts = [...post, ...response];
       console.log('all posts', this.allPosts);
       this.inmutePosts = [...this.allPosts];
-
-      // Get more tags
-      // this.allTags = [...this.getTagsFromPost()];
       $event.target.complete();
     }
     if ( !response.length ) {

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DataLocalService } from './data-local.service';
+import { DarkModeService } from './dark-mode.service';
 
-describe('DataLocalService', () => {
-  let service: DataLocalService;
+describe('DarkModeService', () => {
+  let service: DarkModeService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DataLocalService);
+    service = TestBed.inject(DarkModeService);
   });
 
   it('should be created', () => {

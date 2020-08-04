@@ -3,7 +3,12 @@
         <!-- Side Menu -->
         <ion-menu contentId="main-content" type="overlay">
             <div class="app-menu-logo-container">
-                <ion-img src="assets/img/guia_para_negocios_logo.png" alt=""></ion-img>
+                <ng-container *ngIf="!darkMode; else elseTemplate">
+                    <ion-img src="assets/img/guia_para_negocios_logo.png" alt="GPN logo"></ion-img>
+                </ng-container>
+                <ng-template #elseTemplate>
+                    <ion-img src="assets/img/Logo-GPN-Blanco.png" alt="GPN logo"></ion-img>
+                </ng-template>
             </div>
             <ion-content class="app-menu-lateral">
                 <ion-list id="inbox-list">

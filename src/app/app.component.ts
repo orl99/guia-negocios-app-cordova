@@ -6,7 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppVersion } from '@ionic-native/app-version/ngx';
 import { Facebook } from '@ionic-native/facebook/ngx';
-import { DataLocalService } from './services/data-local.service';
+import { DarkModeService } from './services/dark-mode.service';
 
 @Component({
   selector: 'app-root',
@@ -23,11 +23,11 @@ export class AppComponent implements OnInit {
       url: 'categories',
       icon: 'book'
     },
-    // {
-    //   title: 'Recursos',
-    //   url: 'recursos',
-    //   icon: 'file-tray-stacked'
-    // },
+    {
+      title: 'Recursos',
+      url: 'recursos',
+      icon: 'file-tray-stacked'
+    },
     {
       title: 'Sobre la app',
       url: 'about-app',
@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
     private statusBar: StatusBar,
     private appVersion: AppVersion,
     private FB: Facebook,
-    private dataLocalService: DataLocalService,
+    private darkModeService: DarkModeService,
   ) {
     this.initializeApp();
     // AdMob.initialize('ca-app-pub-8693507653531046~7933897666');
@@ -61,7 +61,7 @@ export class AppComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.darkMode = await this.dataLocalService.cargarStorage();
+    this.darkMode = await this.darkModeService.getDarkModeStatus();
     if ( this.darkMode ) {
       document.body.classList.add('dark');
     }
@@ -81,7 +81,7 @@ export class AppComponent implements OnInit {
   cambioTheme() {
     this.darkMode = !this.darkMode;
     document.body.classList.toggle('dark');
-    this.dataLocalService.guardarStorage( this.darkMode );
+    this.darkModeService.setDarkMode( this.darkMode );
   }
 
 }
